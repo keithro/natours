@@ -1,0 +1,11 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "Landing page for Natours",
+  "main": "index.js",
+  "scripts": {
+    "compile-sass": "sass --watch sass/main.scss:css/style.css"
+  },
+  "author": "Keith Rodriguez",
+  "license": "ISC"
+}

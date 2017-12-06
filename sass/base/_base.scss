@@ -1,0 +1,16 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; /* forces inheritance on each element */
+}
+
+html {
+  /* Setting rem = 10px (62.5% of 16px) */
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+}
