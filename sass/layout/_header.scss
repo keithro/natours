@@ -8,6 +8,7 @@
   background-size: cover;
   background-position: top;
   position: relative;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* (top/left, top/right, bottom/right, bottom/left) top/left is reference for all percentages */
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* (top/left, top/right, bottom/right, bottom/left) top/left is reference for all percentages */
 
   &__logo-box {
