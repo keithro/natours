@@ -1,0 +1,154 @@
+.navigation {
+  
+  &__checkbox {
+    display: none; // hiding from view
+  }
+  
+  &__button {
+    background-color: $color-white;
+    height: 7rem;
+    width: 7rem;
+    position: fixed;
+    top: 6rem;
+    right: 6rem;
+    border-radius: 50%;
+    z-index: 2000;
+    box-shadow: 0 1rem 3rem rgba($color-black, .1);
+    text-align: center; // to center hamburger since it is inline-block
+    cursor: pointer;
+  }
+  
+  &__background {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    position: fixed;
+    top: 6.5rem; // smaller than button above to hide it
+    right: 6.5rem;
+    background-image: radial-gradient($color-primary-light, $color-primary-dark);
+    z-index: 1000;
+    transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  
+  &__nav {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0; // makes nav move in/out of left side during animation
+    // left: -20; // fix nav showing up on page load
+    z-index: 1500;
+
+    // to hide nav when closed
+    opacity: 0;
+    width: 0;
+    transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  &__list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    text-align: center;
+    width: 100%; // need for animation on .navigation__nav
+  }
+  
+  &__item {
+    margin: 1rem;
+  }
+  
+  &__link {
+
+    &:link,
+    &:visited {
+      display: inline-block; // need for padding and translateX hover effect
+      font-size: 3rem;
+      font-weight: 300;
+      padding: 1rem 2rem;
+      color: white;
+      text-decoration: none;
+      text-transform: uppercase;
+      background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);
+      background-size: 220%; // need for hover animation
+      transition: all .4s;
+
+      span {
+        margin-right: 1.5rem;
+        display: inline-block;
+      }
+    }
+
+    &:focus,
+    &:hover,
+    &:active {
+      background-position: 100%;
+      color: $color-primary;
+      transform: translateX(1rem);
+      outline: none;
+    }
+  }
+
+  // FUNCTIONALITY
+  &__checkbox:checked ~ &__background {
+    transform: scale(80);
+  }
+
+  &__checkbox:checked ~ &__nav {
+    opacity: 1;
+    width: 100%;
+    // left: 0; // fix nav showing up on page load
+  }
+
+  // ICON
+  &__icon {
+    position: relative;
+    margin-top: 3.5rem;
+
+    &, // the icon itself (.navigation__icon)
+    &::before,
+    &::after {
+      width: 3rem;
+      height: 2px; // should not change
+      background-color: $color-grey-dark-3;
+      display: inline-block; // can use text-align: center on parent (.navigation__button)
+      transition: all .2s; // i think it looks better on all three
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      // transition: all .2s;
+    }
+
+    &::before { top: -.8rem; }
+    &::after { top: .8rem; }
+  }
+
+  &__button:hover &__icon::before {
+    top: -1rem;
+  }
+
+  &__button:hover &__icon::after {
+    top: 1rem;
+  }
+
+  // Checkbox's sibling's (button) child element (icon)
+  &__checkbox:checked + &__button &__icon {
+    // we don't want to change the size because before and after pseudo-elements ar positioned in relation to that size
+    background-color: transparent;
+  }
+
+  &__checkbox:checked + &__button &__icon::before {
+    top: 0;
+    transform: rotate(135deg); // three quarter rotation to give cool effect
+  }
+
+  &__checkbox:checked + &__button &__icon::after {
+    top: 0;
+    transform: rotate(-135deg); // three quarter rotation to give cool effect
+  }
+}
