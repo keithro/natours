@@ -46,10 +46,7 @@
   }
   
   &__list {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    @include absCenter;
     list-style: none;
     text-align: center;
     width: 100%; // need for animation on .navigation__nav
@@ -101,7 +98,7 @@
     // left: 0; // fix nav showing up on page load
   }
 
-  // ICON
+  // HAMBURGER ICON
   &__icon {
     position: relative;
     margin-top: 3.5rem;
@@ -128,6 +125,7 @@
     &::after { top: .8rem; }
   }
 
+  // ON HOVER
   &__button:hover &__icon::before {
     top: -1rem;
   }
@@ -136,6 +134,7 @@
     top: 1rem;
   }
 
+  // ON CLICK
   // Checkbox's sibling's (button) child element (icon)
   &__checkbox:checked + &__button &__icon {
     // we don't want to change the size because before and after pseudo-elements ar positioned in relation to that size

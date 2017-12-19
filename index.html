@@ -20,16 +20,16 @@
       <label for="navi-toggle" class="navigation__button">
         <span class="navigation__icon">&nbsp;</span>
       </label>
-      <!-- Empty background -->
+      <!-- Navigation background -->
       <div class="navigation__background">&nbsp;</div>
       <!-- Navigation container -->
       <nav class="navigation__nav">
         <ul class="navigation__list">
-          <li class="navigation__item"><a href="#" class="navigation__link"><span>01</span>About Natours</a></li>
-          <li class="navigation__item"><a href="#" class="navigation__link"><span>02</span>Your benefits</a></li>
-          <li class="navigation__item"><a href="#" class="navigation__link"><span>03</span>Popular tours</a></li>
-          <li class="navigation__item"><a href="#" class="navigation__link"><span>04</span>Stories</a></li>
-          <li class="navigation__item"><a href="#" class="navigation__link"><span>05</span>Book now</a></li>
+          <li class="navigation__item"><a href="#section-about" class="navigation__link"><span>01</span>About Natours</a></li>
+          <li class="navigation__item"><a href="#section-features" class="navigation__link"><span>02</span>Your benefits</a></li>
+          <li class="navigation__item"><a href="#section-tours" class="navigation__link"><span>03</span>Popular tours</a></li>
+          <li class="navigation__item"><a href="#section-stories" class="navigation__link"><span>04</span>Stories</a></li>
+          <li class="navigation__item"><a href="#section-book" class="navigation__link"><span>05</span>Book now</a></li>
         </ul>
       </nav>
     </div>
@@ -45,12 +45,13 @@
           <span class="heading-primary--sub">is where life happens</span>
         </h1>
 
-        <a href="#" class="btn btn--white btn--animated">Discover our tours</a>
+        <a href="#section-tours" class="btn btn--white btn--animated">Discover our tours</a>
       </div class="text-box">
     </header>
 
     <main>
-      <section class="section-about">
+      <!-- ABOUT SECTION -->
+      <section class="section-about" id="section-about">
         <div class="u-center-text u-margin-bottom-large">
           <h2 class="heading-secondary">
             Exciting tours for adventurous people
@@ -81,7 +82,8 @@
         </div>
       </section>
 
-      <section class="section-features">
+      <!-- FEATURES SECTION -->
+      <section class="section-features" id="section-features">
         <div class="row">
           <div class="col-1-of-4">
             <div class="feature-box">
@@ -126,7 +128,8 @@
         </div>
       </section>
 
-      <section class="section-tours">
+      <!-- TOURS SECTION -->
+      <section class="section-tours" id="section-tours">
         <div class="u-center-text u-margin-bottom-large">
           <h2 class="heading-secondary">
             Most popular tours
@@ -161,7 +164,7 @@
                     <p class="card__price-only">Only</p>
                     <p class="card__price-value">$297</p>
                   </div>
-                  <a href="#" class="btn btn--white">Book now!</a>
+                  <a href="#popup" class="btn btn--white">Book now!</a>
                 </div>
               </div>
             </div>
@@ -194,7 +197,7 @@
                     <p class="card__price-only">Only</p>
                     <p class="card__price-value">$497</p>
                   </div>
-                  <a href="#" class="btn btn--white">Book now!</a>
+                  <a href="#popup" class="btn btn--white">Book now!</a>
                 </div>
               </div>
             </div>
@@ -227,7 +230,7 @@
                     <p class="card__price-only">Only</p>
                     <p class="card__price-value">$897</p>
                   </div>
-                  <a href="#" class="btn btn--white">Book now!</a>
+                  <a href="#popup" class="btn btn--white">Book now!</a>
                 </div>
               </div>
             </div>
@@ -239,7 +242,8 @@
         </div>
       </section>
 
-      <section class="section-stories">
+      <!-- STORIES SECTION -->
+      <section class="section-stories" id="section-stories">
         <div class="bg-video">
           <video class="bg-video__content" autoplay muted loop>
             <source src="img/video.mp4" type="video/mp4">
@@ -289,7 +293,8 @@
         </div>
       </section>
 
-      <section class="section-book">
+      <!-- BOOK SECTION -->
+      <section class="section-book" id="section-book">
         <div class="row">
           <div class="book">
             <div class="book__form">
@@ -362,6 +367,30 @@
       </div>
     </footer>
 
+    <div class="popup" id="popup">
+      <div class="popup__content">
+        <div class="popup__left">
+          <img src="img/nat-8.jpg" alt="Tour photo" class="popup__img">
+          <img src="img/nat-9.jpg" alt="Tour photo" class="popup__img">
+        </div>
+        <div class="popup__right">
+          <!-- target will no longer be the popup when the link is clicked -->
+          <a href="#section-tours" class="popup__close">&times;</a>
+          <h2 class="heading-secondary u-margin-bottom-small">Start booking now</h2>
+          <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please read our term before booking</h3>
+          <p class="popup__text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Sit amet purus gravida quis. Leo in vitae turpis massa sed elementum tempus egestas. Dui vivamus arcu felis bibendum. Ultricies
+            integer quis auctor elit. Fermentum et sollicitudin ac orci phasellus egestas tellus. Ullamcorper eget nulla facilisi etiam
+            dignissim. Nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue. Sapien eget mi proin sed libero enim. Gravida
+            quis blandit turpis cursus in. Cum sociis natoque penatibus et. Aenean vel elit scelerisque mauris. Orci a scelerisque purus
+            semper.
+          </p>
+          <a href="#" class="btn btn--green">Book now</a>
+        </div>
+      </div>
+    </div>
+
     <!-- 
     <section class="grid-test">
       <div class="row">
@@ -432,6 +461,7 @@
     </section>
    -->
 
+   <script src="js/script.js"></script>
   </body>
 
 </html>
