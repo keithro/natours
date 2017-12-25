@@ -154,7 +154,9 @@
   }
 
   // REFORMAT CARDS ON MOBILE DEVICES - will be normal one-sided cards
-  @include respond(tablet-port) {
+  // @include respond(tablet-port) {
+  @media only screen and (max-width: 56.25em),
+         only screen and (hover: none) {
     height: auto; // will no longer need this
     border-radius: 3px; // changed from the front side to the whole card
     background-color: $color-white;
