@@ -8,22 +8,40 @@
   padding-left: 9rem; // to offset the translateX on the .story__shape
   font-size: $default-font-size;
   transform: skewX(-12deg);
-  
   // & > * {
   //   transform: skewX(12deg); /* Cannot use this method since a transform property is already defined on .story__shape */
   // }
+
+  @include respond(tablet-port) {
+    width: 100%;
+    padding: 4rem;
+    padding-left: 7rem;
+  }
+
+  @include respond(phone) {
+    transform: skewX(0);
+  }
 
   &__shape {
     width: 15rem;
     height: 15rem;
     float: left;
-    -webkit-shape-outside: circle(50% at 50% 50%);
-    shape-outside: circle(50% at 50% 50%); // (radius, center)
-    -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
     transform: translateX(-3rem) skewX(12deg); // also reversing skew on .story
     position: relative;
     overflow: hidden; // to fix img overflow after adding animation
+    border-radius: 50%; // if a browser does not support the clip-path below
+    
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      -webkit-clip-path: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%);
+      -webkit-shape-outside: circle(50% at 50% 50%);
+      shape-outside: circle(50% at 50% 50%); // (radius, center)
+      border-radius: none;
+    }
+
+    @include respond(phone) {
+      transform: translateX(-3rem) skewX(0);
+    }
   }
 
   &__img {
@@ -35,6 +53,10 @@
 
   &__text {
     transform: skewX(12deg); // reversing skew on .story
+
+    @include respond(phone) {
+      transform: skewX(0);
+    }
   }
 
   &__caption {

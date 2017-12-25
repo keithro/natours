@@ -2,17 +2,40 @@
   max-width: $grid-width;
   margin: 0 auto; // for block level elements
   
+  // Row Gutters
   &:not(:last-child) {
     margin-bottom: $gutter-vertical;
+
+    @include respond(tablet-port) {
+      margin-bottom: $gutter-vertical-small;
+    }
+  }
+
+  // Row - maybe move up above gutters
+  @include respond(tablet-port) {
+    max-width: 50rem;
+    padding: 0 3rem;
   }
 
   @include clearfix;
 
+  // Columns
   [class^="col-"] { // Selecting all classes that start with "col-"
     float: left;
 
+    // Column Gutters
     &:not(:last-child) {
       margin-right: $gutter-horizontal;
+
+      @include respond(tablet-port) {
+        margin-right: 0;
+        margin-bottom: $gutter-vertical-small;
+      }
+    }
+
+    // Columns (?)
+    @include respond(tablet-port) {
+      width: 100% !important;
     }
   }
 

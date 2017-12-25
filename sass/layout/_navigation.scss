@@ -16,6 +16,16 @@
     box-shadow: 0 1rem 3rem rgba($color-black, .1);
     text-align: center; // to center hamburger since it is inline-block
     cursor: pointer;
+
+    @include respond(tablet-port) {
+      top: 4rem;
+      right: 4rem;
+    }
+
+    @include respond(phone) {
+      top: 3rem;
+      right: 3rem;
+    }
   }
   
   &__background {
@@ -28,6 +38,16 @@
     background-image: radial-gradient($color-primary-light, $color-primary-dark);
     z-index: 1000;
     transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
+
+    @include respond(tablet-port) {
+      top: 4.5rem;
+      right: 4.5rem;
+    }
+
+    @include respond(phone) {
+      top: 3.5rem;
+      right: 3.5rem;
+    }
   }
   
   &__nav {
@@ -36,7 +56,7 @@
     position: fixed;
     top: 0;
     left: 0; // makes nav move in/out of left side during animation
-    // left: -20; // fix nav showing up on page load
+    // left: -20; // fix nav showing up on page load...but it doesn't look like i need it
     z-index: 1500;
 
     // to hide nav when closed

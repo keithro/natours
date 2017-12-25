@@ -7,10 +7,27 @@
 }
 
 html {
-  /* Setting rem = 10px (62.5% of 16px) */
-  font-size: 62.5%;
+  /* Defining value of 1 rem */
+  font-size: 62.5%; // 1rem = 10px (10px / 16px default)
+  
+  @include respond(tablet-land) { // width < 1200
+    font-size: 56.25%; // 1rem = 9px (9px / 16px)
+  }
+
+  @include respond(tablet-port) { // width < 900
+    font-size: 50%; // 1rem = 8px (8px / 16px)
+  }
+
+  @include respond(lg-screen) { // width > 1800
+    font-size: 75%; // 1rem = 12px (12px / 16px)
+  }
 }
 
 body {
   box-sizing: border-box;
+  padding: 3rem;
+
+  @include respond(tablet-port) {
+    padding: 0rem;
+  }
 }

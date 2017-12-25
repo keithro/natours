@@ -1,11 +1,6 @@
-navLinks = document.querySelectorAll('.navigation__item');
-navToggle = document.getElementById('navi-toggle')
-
-function closeNav() {
-  navToggle.checked = false;
-  // navToggle.click(); // fires event if you need it
-}
-
-navLinks.forEach(link => {
-  link.addEventListener('click', closeNav);
+// To close menu when link is clicked
+document.querySelectorAll('.navigation__item').forEach(link => {
+  link.addEventListener('click', function() {
+    document.getElementById('navi-toggle').checked = false;
+  });
 });

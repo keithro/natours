@@ -1,5 +1,4 @@
 .card {
-
   // FUNCTIONALITY
   perspective: 150rem;
   -moz-perspective: 150rem;
@@ -13,6 +12,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    -webkit-backface-visibility: hidden; // so you dont see back of cards
     backface-visibility: hidden; // so you dont see back of cards
     border-radius: 3px;
     overflow: hidden; // to hide corners of pics going over border-radius
@@ -151,5 +151,52 @@
   &__price-value {
     font-size: 6rem;
     font-weight: 100;
+  }
+
+  // REFORMAT CARDS ON MOBILE DEVICES - will be normal one-sided cards
+  @include respond(tablet-port) {
+    height: auto; // will no longer need this
+    border-radius: 3px; // changed from the front side to the whole card
+    background-color: $color-white;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+    &__side {
+      height: auto; // will no longer need this
+      position: relative;
+      box-shadow: none; // move shadow on the whole card now
+
+      &--back {
+        transform: rotateY(0); // no longer need the card to start flipped over
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+
+    &:hover &__side--front {
+      transform: rotateY(0);
+    }
+    
+
+    // FRONT SIDE STYLING
+    &__details {
+      padding: 1 3rem;
+    }
+    
+    // BACK SIDE STYLING
+    &__cta {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0);
+      width: 100%;
+      padding: 7rem 4rem 4rem 4rem;
+    }
+
+    &__price-box {
+      margin-bottom: 3rem;
+    }
+
+    &__price-value {
+      font-size: 4rem;
+    }
   }
 }
